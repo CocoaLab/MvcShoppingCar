@@ -1,0 +1,18 @@
+﻿@model   List<MvcShoppingCar.Models.ProductCategory>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>@Html.DisplayNameFor(Model=>Model[0])</h2>
+
+<ul>
+    @foreach (var item in Model)
+    { 
+    
+      
+    <li>@Html.ActionLink(item.Name,"ProductList",new {id = item.Id})</li>
+        
+    }
+
+</ul>
