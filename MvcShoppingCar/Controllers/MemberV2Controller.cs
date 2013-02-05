@@ -55,9 +55,36 @@ namespace MvcShoppingCar.Controllers
 
         }
 
+        /// <summary>
+        /// 驗證使用者是否通過驗證
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
         private bool ValidateUser(string email, string password)
         {
-            throw new NotImplementedException();
+            var hash_pw = FormsAuthentication.HashPasswordForStoringInConfigFile(pwSalt+password,"SHA1");
+            var member = (from p in db.Members
+                          where p.email == email && p.password == hash_pw
+                          select p).FirstOrDefault();
+
+            if (member != null)
+            {
+                if (member.authcode == null)
+                {
+                    return true;
+                }
+                else
+                {
+                    ModelState.AddModelError("", "您尚未通過會員驗證，請收信並點會員驗證連結");
+                    return false;
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "您輸入帳號或密碼錯誤");
+                return false;
+            }
         }
 
         //執行登出
