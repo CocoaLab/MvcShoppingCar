@@ -11,6 +11,7 @@ namespace MvcShoppingCar.Controllers
 {
     public class MemberController : Controller
     {
+        private string pwSalt = "aAPa435KMKojzvk309u0uadsifjakd23kxAFDGSnjvlk";
         //
         // GET: /Member/
         //註冊頁面
@@ -23,6 +24,7 @@ namespace MvcShoppingCar.Controllers
         [HttpPost]
         public ActionResult Register([Bind(Exclude = "RegisterOn,authcode")] Member member)
         {
+            //var chk_member = 
             return View();
         }
 
