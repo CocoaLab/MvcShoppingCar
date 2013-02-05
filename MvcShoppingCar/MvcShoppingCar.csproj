@@ -118,7 +118,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\MVCShoppingContext.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -126,12 +125,15 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MemberController.cs" />
+    <Compile Include="Controllers\MemberV2Controller.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Member.cs" />
+    <Compile Include="Models\MemberContext.cs" />
     <Compile Include="Models\MemberLoginViewModel.cs" />
     <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\OrderHead.cs" />
@@ -228,6 +230,11 @@
     <Content Include="Views\Member\Register.cshtml" />
     <Content Include="Views\Member\Login.cshtml" />
     <Content Include="Views\Home\ProductList.cshtml" />
+    <Content Include="Views\MemberV2\Index.cshtml" />
+    <Content Include="Views\MemberV2\Details.cshtml" />
+    <Content Include="Views\MemberV2\Create.cshtml" />
+    <Content Include="Views\MemberV2\Edit.cshtml" />
+    <Content Include="Views\MemberV2\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Code\" />

@@ -1,0 +1,57 @@
+﻿@model MvcShoppingCar.Models.Member
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Member</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.password)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.password)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.nickname)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.nickname)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RegisterOn)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RegisterOn)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.authcode)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.authcode)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
