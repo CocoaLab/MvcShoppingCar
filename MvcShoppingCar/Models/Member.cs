@@ -17,6 +17,7 @@ namespace MvcShoppingCar.Models
         [Description("我們採用email為帳號")]
         [MaxLength(250, ErrorMessage = "EMAIL長度不能超過250個字")]
         [DataType(DataType.EmailAddress)]
+        [System.Web.Mvc.Remote("CheckDup","Member",HttpMethod="Post",ErrorMessage="此mail已經註冊過了")]
         public string email { get; set; }
 
         [DisplayName("會員密碼")]

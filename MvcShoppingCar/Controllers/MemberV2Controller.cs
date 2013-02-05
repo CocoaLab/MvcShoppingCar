@@ -87,6 +87,27 @@ namespace MvcShoppingCar.Controllers
             }
         }
 
+        /// <summary>
+        /// 檢查mail是否有被註冊過了
+        /// </summary>
+        /// <param name="Email"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult CheckDup(string Email) {
+
+            var member = db.Members.Where(p => p.email == Email).FirstOrDefault();
+            if (member != null)
+            {
+                return Json(false);
+            }
+            else
+            {
+                return Json(true);
+            }
+        
+        }
+
+
         //執行登出
         public ActionResult Logout()
         {
