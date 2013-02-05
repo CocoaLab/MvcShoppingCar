@@ -58,6 +58,31 @@ namespace MvcShoppingCar.Controllers
         }
 
 
+        public ActionResult ValidateRegister(string id)
+        {
+            if (string.IsNullOrEmpty(id))
+            {
+                return HttpNotFound();
+            }
+
+            var member = db.Members.Where(p => p.authcode == id).FirstOrDefault();
+
+            if (member != null)
+            {
+                TempData["LastTempMessage"] = "會員驗證成功，您現可以登入網站了";
+                //驗證成功後把auth code清空
+                member.authcode = null;
+                db.SaveChanges();
+
+            }
+            else
+            {
+                TempData["LastTempMessage"] = "查無此會員驗證碼，您可能已經驗證過了";
+            }
+            return RedirectToAction("Login", "Member");
+
+        }
+
 
         //
         // GET: /MemberV2/Details/5
